@@ -10,7 +10,8 @@ namespace :db do
     args.with_defaults(:count => 10)
     puts args.inspect
     puts "Resetting the database"
-    Rake::Task['db:reset'].invoke
+    Rake::Task['db:drop:_unsafe'].invoke
+    Rake::Task['db:setup'].invoke
     puts "Creating #{args[:count]} of each class"
     factory_names = FactoryBot.factories.map(&:name)
     puts "Found factories: #{factory_names.inspect}"
