@@ -13,28 +13,25 @@
 
   <div class="field">
     <%= form.label :stars %>
-    <%= form.hidden_field :stars %>
-    <% 5.times do %>
-      <i class="rating-scale fas fa-star" onmouseover="hoverScale(this)"></i>
+    <% if rating.stars == nil %>
+      <%= form.hidden_field :stars, value: 5 %>
+    <% else %>
+      <%= form.hidden_field :stars %>
     <% end %>
-    <!--<script type="text/javascript">
-        let stars = document.querySelectorAll('.rating-scale');
-        function hoverScale(element) {
-            for (let i = 0; i < stars.length; i++) {
-                if (stars[i] === element) {
-                    for (let j = 0; j < stars.length; j++) {
-                        if (j <= i) {
-                            stars[j].classList.remove('far');
-                            stars[j].classList.add('fas');
-                        } else {
-                            stars[j].classList.remove('fas');
-                            stars[j].classList.add('far');
-                        }
-                    }
-                }
-            }
-        }
-    </script>-->
+    <div class="rating-scale">
+      <% if rating.stars != nil %>
+        <% rating.stars.times do %>
+          <i class="rating-star fas fa-star"></i>
+        <% end %>
+        <% (5 - rating.stars).times do %>
+          <i class="rating-star far fa-star"></i>
+        <% end %>
+      <% else %>
+        <% 5.times do %>
+          <i class="rating-star fas fa-star"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="field">
@@ -51,3 +48,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= javascript_tag 'init();' %>

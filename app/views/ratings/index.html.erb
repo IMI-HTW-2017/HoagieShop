@@ -15,7 +15,14 @@
   <tbody>
     <% @ratings.each do |rating| %>
       <tr>
-        <td><%= rating.stars %></td>
+        <td>
+          <% rating.stars.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - rating.stars).times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </td>
         <td><%= rating.comment %></td>
         <td><%= image_tag rating.picture_url, width: 50 if rating.picture.present? %></td>
         <td><%= link_to 'Show', rating %></td>
