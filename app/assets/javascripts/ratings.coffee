@@ -13,8 +13,6 @@ rating = null
   star.addEventListener('mouseover', hoverScale, false) for star in stars
   star.addEventListener('click', setRating, false) for star in stars
 
-window.addEventListener('load', init, false)
-
 hoverScale = (event) ->
   for star, i in stars
     if star == event.target
