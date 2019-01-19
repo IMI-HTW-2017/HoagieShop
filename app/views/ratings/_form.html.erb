@@ -18,7 +18,7 @@
     <% else %>
       <%= form.hidden_field :stars %>
     <% end %>
-    <div class="rating-scale">
+    <div class="rating-scale" id="rating">
       <% if rating.stars != nil %>
         <% rating.stars.times do %>
           <i class="rating-star fas fa-star"></i>

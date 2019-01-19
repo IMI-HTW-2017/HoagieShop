@@ -20,8 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Stylesheet_link_tag error get-around
-gem 'coffee-script-source' , '1.8.0'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -40,6 +39,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Custom stuff
 gem 'carrierwave'
+# Stylesheet_link_tag error get-around
+gem 'coffee-script-source' , '1.8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
