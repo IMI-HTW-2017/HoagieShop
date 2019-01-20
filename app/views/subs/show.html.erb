@@ -2,22 +2,27 @@
 
 <p>
   <strong>Order:</strong>
-  <%= @sub.order %>
+  <%= @sub.order.id %>
 </p>
 
 <p>
   <strong>Bread:</strong>
-  <%= @sub.bread %>
+  <%= @sub.bread.name %>
 </p>
 
 <p>
   <strong>Main ingredient:</strong>
-  <%= @sub.main_ingredient %>
+  <%= @sub.main_ingredient.name %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @sub.ingredients.collect(&:name).inject { |list, ingredient| list + ", " + ingredient } %>
 </p>
 
 <p>
   <strong>Sauce:</strong>
-  <%= @sub.sauce %>
+  <%= @sub.sauce.name %>
 </p>
 
 <%= link_to 'Edit', edit_sub_path(@sub) %> |

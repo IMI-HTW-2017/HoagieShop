@@ -18,17 +18,21 @@
 
   <div class="field">
     <%= form.label :bread_id %>
-    <%= form.text_field :bread_id %>
+    <%= select :sub, :bread_id, options_from_collection_for_select(Bread.all, "id", "name"), include_blank: "-" %>
   </div>
 
   <div class="field">
     <%= form.label :main_ingredient_id %>
-    <%= form.text_field :main_ingredient_id %>
+    <%= select :sub, :main_ingredient_id, options_from_collection_for_select(MainIngredient.all, "id", "name"), include_blank: "-" %>
+  </div>
+
+  <div class="field">
+    <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :sauce_id %>
-    <%= form.text_field :sauce_id %>
+    <%= select :sub, :sauce_id, options_from_collection_for_select(Sauce.all, "id", "name"), include_blank: "-" %>
   </div>
 
   <div class="actions">

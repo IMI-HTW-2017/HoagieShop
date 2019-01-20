@@ -69,6 +69,6 @@ class SubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sub_params
-      params.require(:sub).permit(:order_id, :bread_id, :main_ingredient_id, :sauce_id)
+      params.require(:sub).permit(:order_id, :bread_id, :main_ingredient_id, {ingredient_ids: []}, :sauce_id)
     end
 end
