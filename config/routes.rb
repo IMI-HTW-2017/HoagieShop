@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/pages/:page" => "pages#show"
+  get "/pages/:page" => "pages#show", as: 'show_page'
   root 'pages#show', page: "home"
   resources :ratings
   resources :subs
