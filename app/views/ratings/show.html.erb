@@ -17,7 +17,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= image_tag(@rating.picture_url, width: 150) if @rating.picture.present? %>
+  <a href="<%= @rating.picture_url %>" data-lightbox="rating"><%= image_tag(@rating.picture_url, width: 150) if @rating.picture.present? %></a>
 </p>
 
 <%= link_to 'Edit', edit_rating_path(@rating) %> |

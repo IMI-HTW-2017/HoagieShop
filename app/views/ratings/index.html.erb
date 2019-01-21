@@ -24,7 +24,7 @@
           <% end %>
         </td>
         <td><%= rating.comment %></td>
-        <td><%= image_tag rating.picture_url, width: 50 if rating.picture.present? %></td>
+        <td><a href="<%= rating.picture_url %>" data-lightbox="ratings"><%= image_tag rating.picture_url, width: 50 if rating.picture.present? %></a></td>
         <td><%= link_to 'Show', rating %></td>
         <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
         <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
