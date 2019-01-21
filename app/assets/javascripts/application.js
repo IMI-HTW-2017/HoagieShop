@@ -15,3 +15,4 @@
 //= require activestorage
 //= require turbolinks
 //= require_directory .
+//= require_directory ./channels
