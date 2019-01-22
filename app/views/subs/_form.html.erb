@@ -11,31 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :order_id %>
-    <%= form.text_field :order_id %>
+    <%= form.text_field :order_id, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :bread_id %>
-    <%= select :sub, :bread_id, options_from_collection_for_select(Bread.all, "id", "name"), include_blank: "-" %>
+    <%= select :sub, :bread_id, options_from_collection_for_select(Bread.all, "id", "name"), { prompt: true }, { class: "form-control" } %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :main_ingredient_id %>
-    <%= select :sub, :main_ingredient_id, options_from_collection_for_select(MainIngredient.all, "id", "name"), include_blank: "-" %>
+    <%= select :sub, :main_ingredient_id, options_from_collection_for_select(MainIngredient.all, "id", "name"), { prompt: true }, { class: "form-control" } %>
   </div>
 
-  <div class="field">
-    <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <div class="form-group">
+    <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |box| %>
+      <div class="form-check">
+        <%= box.check_box %>
+        <%= box.label %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :sauce_id %>
-    <%= select :sub, :sauce_id, options_from_collection_for_select(Sauce.all, "id", "name"), include_blank: "-" %>
+    <%= select :sub, :sauce_id, options_from_collection_for_select(Sauce.all, "id", "name"), { prompt: true }, { class: "form-control" } %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: %w(btn btn-primary) %>
   </div>
 <% end %>
