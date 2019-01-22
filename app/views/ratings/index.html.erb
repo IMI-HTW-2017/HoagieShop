@@ -1,38 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ratings</h1>
+<h1>
+  Ratings
+  <a href="<%= new_rating_path %>" class="ml-auto float-right"><button class="btn btn-primary">New Rating</button></a>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Stars</th>
-      <th>Comment</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @ratings.each do |rating| %>
-      <tr>
-        <td>
-          <% rating.stars.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
-          <% (5 - rating.stars).times do %>
-            <i class="far fa-star"></i>
-          <% end %>
-        </td>
-        <td><%= rating.comment %></td>
-        <td><a href="<%= rating.picture_url %>" data-lightbox="ratings"><%= image_tag rating.picture_url, width: 50 if rating.picture.present? %></a></td>
-        <td><%= link_to 'Show', rating %></td>
-        <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
-        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @ratings = @ratings.reverse %>
+
+<div class="row">
+  <div class="col-md-4">
+    <% @ratings.each_slice(3).map(&:first).each do |rating| %>
+      <div class="card my-4">
+        <a href="<%= rating.picture_url %>" data-lightbox="ratings"><%= image_tag rating.picture_url, class: "card-image-top img-fluid" if rating.picture.present? %></a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <% rating.stars.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - rating.stars).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </h5>
+          <p class="card-text"><%= rating.comment %></p>
+          <p class="card-text text-secondary text-right text-small"><%= l rating.created_at.to_date, format: :long %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Rating', new_rating_path %>
+  </div>
+  <div class="col-md-4">
+    <% @ratings.drop(1).each_slice(3).map(&:first).each do |rating| %>
+      <div class="card my-4">
+        <a href="<%= rating.picture_url %>" data-lightbox="ratings"><%= image_tag rating.picture_url, class: "card-image-top img-fluid" if rating.picture.present? %></a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <% rating.stars.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - rating.stars).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </h5>
+          <p class="card-text"><%= rating.comment %></p>
+          <p class="card-text text-secondary text-right text-small"><%= l rating.created_at.to_date, format: :long %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <% @ratings.drop(2).each_slice(3).map(&:first).each do |rating| %>
+      <div class="card my-4">
+        <a href="<%= rating.picture_url %>" data-lightbox="ratings"><%= image_tag rating.picture_url, class: "card-image-top img-fluid" if rating.picture.present? %></a>
+        <div class="card-body">
+          <h5 class="card-title">
+            <% rating.stars.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - rating.stars).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </h5>
+          <p class="card-text"><%= rating.comment %></p>
+          <p class="card-text text-secondary text-right text-small"><%= l rating.created_at.to_date, format: :long %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
