@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-    @current_order = current_order
   end
 
   # GET /orders/1

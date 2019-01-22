@@ -25,5 +25,14 @@
   <%= @order.price %>
 </p>
 
+<p>
+  <strong>Subs:</strong>
+  <ul>
+    <% @order.subs_list.each do |sub| %>
+      <%= tag.li link_to sub, sub %>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

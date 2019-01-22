@@ -14,7 +14,12 @@ class SubsController < ApplicationController
 
   # GET /subs/new
   def new
-    @sub = Sub.new
+    if current_order
+      @sub = Sub.new
+      @sub.order_id = current_order.id
+    else
+      redirect_to new_order_path
+    end
   end
 
   # GET /subs/1/edit
