@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    @current_order = current_order
   end
 
   # GET /orders/1
@@ -28,6 +29,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        session[:current_order_id] = @order.id
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
