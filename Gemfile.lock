@@ -82,7 +82,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.12.2)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     erubi (1.8.0)
@@ -229,6 +229,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper (~> 2.1.0)
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
   factory_bot_rails
   jbuilder (~> 2.5)
   jquery-rails

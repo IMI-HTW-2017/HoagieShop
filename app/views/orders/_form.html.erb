@@ -4,39 +4,35 @@
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
+  <%= form.hidden_field :status %>
+  <%= form.hidden_field :paid %>
 
-  <div class="field">
-    <%= form.label :paid %>
-    <%= form.check_box :paid %>
-  </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :delivery_address %>
     <%= form.text_field :delivery_address %>
   </div>
 
-  <div class="field">
-    <%= form.label :billing_method %>
-    <%= form.text_field :billing_method %>
+  <div class="form-group">
+    <% Order::Billing_Methods.each do |method, name| %>
+      <%= form.radio_button :billing_method, method %>
+      <%= form.label :billing_method, name %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+  <div class="form-group">
+    <%= form.label :price %>:
+    <%= order.price %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
