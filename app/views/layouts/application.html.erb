@@ -23,6 +23,11 @@
           <li class="nav-item">
             <%= link_to 'Order a Hoagie', new_sub_path, class: "nav-link" %>
           </li>
+          <% if session[:current_order_id] %>
+            <li class="nav-item">
+              <%= link_to 'Your Order', Order.find(session[:current_order_id]), class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to 'Ratings', ratings_path, class: "nav-link" %>
           </li>

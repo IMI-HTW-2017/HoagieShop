@@ -1,4 +1,4 @@
-<%= form_with(model: main_ingredient, local: true) do |form| %>
+<%= form_with(model: main_ingredient, local: true, class: 'round-borders') do |form| %>
   <% if main_ingredient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(main_ingredient.errors.count, "error") %> prohibited this main_ingredient from being saved:</h2>

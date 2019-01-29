@@ -1,3 +1,6 @@
+<h2>Your Order</h2>
+<div class="round-borders">
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -32,6 +35,8 @@
     <%= tag.li link_to "#{sub.main_ingredient.name} Hoagie", sub %>
   <% end %>
 </ul>
+
+</div>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

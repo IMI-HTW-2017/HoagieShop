@@ -1,4 +1,4 @@
-<%= form_with(model: sauce, local: true) do |form| %>
+<%= form_with(model: sauce, local: true, class: 'round-borders') do |form| %>
   <% if sauce.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sauce.errors.count, "error") %> prohibited this sauce from being saved:</h2>
