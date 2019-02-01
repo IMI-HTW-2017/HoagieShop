@@ -57,6 +57,9 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
+      if @order.id == session[:current_order_id]
+        session[:current_order_id] = nil;
+      end
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end

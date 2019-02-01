@@ -1,1 +1,32 @@
-<h2>MAKE YOUR OWN HOAGY</h2>
+<h2>Your Order</h2>
+<div class="round-borders">
+
+  <p id="notice"><%= notice %></p>
+  <% @order = Order.find_by(id: session[:current_order_id]) %>
+  <p>
+    <strong>Delivery address:</strong>
+    <%= @order.delivery_address %>
+  </p>
+
+  <p>
+    <strong>Billing method:</strong>
+    <%= @order.billing_method %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @order.price %>
+  </p>
+
+  <p>
+    <strong>Subs:</strong>
+  <ul>
+    <% @order.subs_list.each do |sub| %>
+      <%= tag.li link_to "#{sub.main_ingredient.name} Hoagie", sub %>
+      <%= link_to 'Destroy', sub, method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  </ul>
+
+</div>
+<%= link_to 'Add', new_sub_path(@order) %> |
+<%= link_to 'Edit', edit_order_path(@order) %>

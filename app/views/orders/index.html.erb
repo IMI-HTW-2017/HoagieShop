@@ -5,6 +5,7 @@
 <table class="round-borders">
   <thead>
   <tr>
+    <th>Order</th>
     <th>Status</th>
     <th>Paid</th>
     <th>Delivery address</th>
@@ -17,6 +18,7 @@
   <tbody>
   <% @orders.each do |order| %>
     <tr>
+      <td><%= order.id %></td>
       <td><%= order.status %></td>
       <td><%= order.paid %></td>
       <td><%= order.delivery_address %></td>

@@ -61,7 +61,7 @@ class SubsController < ApplicationController
   def destroy
     @sub.destroy
     respond_to do |format|
-      format.html {redirect_to subs_url, notice: 'Sub was successfully destroyed.'}
+      format.html {redirect_to show_page_path(:order), notice: 'Sub was successfully destroyed.'}
       format.json {head :no_content}
     end
   end
