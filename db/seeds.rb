@@ -14,10 +14,10 @@ Bread.create([
 ])
 
 MainIngredient.create([
-    {name: "Chicken Teriaki", count: 32},
-    {name: "Beef", count: 13},
-    {name: "Ham & Bacon", count: 42},
-    {name: "Tuna", count: 37}
+    {name: "Chicken Teriaki", count: 32, price: 899},
+    {name: "Beef", count: 13, price: 799},
+    {name: "Ham & Bacon", count: 42, price: 999},
+    {name: "Tuna", count: 37, price: 699}
 ])
 
 Ingredient.create([
