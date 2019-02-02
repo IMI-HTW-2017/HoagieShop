@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :stars %>
     <% if rating.stars == nil %>
       <%= form.hidden_field :stars, value: 5 %>
@@ -34,20 +34,20 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :comment %>
     <%= form.text_field :comment %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :picture %>
     <%= form.file_field :picture %>
   </div>
 
   <%= form.hidden_field :published, value: false %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 <%= javascript_tag 'init();' %>

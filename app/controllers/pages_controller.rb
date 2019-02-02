@@ -2,6 +2,10 @@
 class PagesController < ApplicationController
   def show
     @order = current_order
-    render template: "pages/#{params[:page]}"
+    if @order.nil? && params[:page] == "order"
+      redirect_to new_order_path
+    else
+      render template: "pages/#{params[:page]}"
+    end
   end
 end
