@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group">
-    <% Order::Billing_Methods.each do |method, name| %>
+    <% Order::BILLING_METHODS.each do |method, name| %>
       <%= form.radio_button :billing_method, method %>
       <%= form.label :billing_method, name %>
     <% end %>

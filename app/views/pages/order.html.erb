@@ -1,8 +1,8 @@
+
 <h2>Your Order</h2>
 <div class="round-borders">
 
   <p id="notice"><%= notice %></p>
-  <% @order = Order.find_by(id: session[:current_order_id]) %>
   <p>
     <strong>Delivery address:</strong>
     <%= @order.delivery_address %>

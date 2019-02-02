@@ -33,7 +33,7 @@
 <ul>
   <% @order.subs_list.each do |sub| %>
     <%= tag.li link_to "#{sub.main_ingredient.name} Hoagie", sub %>
-    <%= link_to 'Destroy', sub, method: :delete, data: {confirm: 'Are you sure?'} %>
+    <%= link_to 'Remove', sub, method: :delete, data: {confirm: 'Are you sure?'} %>
   <% end %>
 </ul>
 
