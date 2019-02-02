@@ -1,13 +1,6 @@
 body {
-    background-color: #ffff;
     color: #333;
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 13px;
     margin: 0 auto;
-    max-width: 70%;
-    padding: 2em 2em 4em;
-    
-    min-height: 100%;
 }
 
 img {
@@ -16,7 +9,7 @@ img {
     margin: auto;
 }
 
-bold {
+b {
     font-weight: bold;
 }
 
@@ -38,10 +31,11 @@ p {
 
 h1 {
     text-align: center;
-    margin:auto;
-    margin-bottom: 1em;
+    #bottom: 80%;
+    #left: 40%;
+    margin: auto auto 1em;
 }
 
 html {
-    background-image: linear-gradient(270deg, rgb(240, 243, 243) 0%, rgb(180, 180, 180) 100%);
+
 }

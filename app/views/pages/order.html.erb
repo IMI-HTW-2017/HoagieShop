@@ -22,8 +22,10 @@
     <strong>Subs:</strong>
   <ul>
     <% @order.subs_list.each do |sub| %>
-      <%= tag.li link_to "#{sub.main_ingredient.name} Hoagie", sub %>
-      <%= link_to 'Destroy', sub, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= tag.li do %>
+        <%= link_to "#{sub.main_ingredient.name} Hoagie", sub %>
+        <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, sub, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
     <% end %>
   </ul>
 
