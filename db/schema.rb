@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_02_02_142049) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "sent"
   end
 
   create_table "ratings", force: :cascade do |t|
