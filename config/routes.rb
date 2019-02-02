@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get "/pages/:page" => "pages#show", as: 'show_page'
   root 'pages#show', page: "home"
+  get "/pages/:page" => "pages#show", as: 'show_page'
+  get "/ratings/admin" => "ratings#admin", as: 'admin_ratings'
+  put "/ratings/:id/publish" => "ratings#publish", as: 'publish_rating'
   resources :ratings
   resources :subs
   resources :orders

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ratings</h1>
+
+<table class="round-borders">
+  <thead>
+  <tr>
+    <th>Stars</th>
+    <th>Comment</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @ratings.each do |rating| %>
+    <tr>
+      <td><%= rating.stars %></td>
+      <td><%= rating.comment %></td>
+      <td><%= image_tag rating.picture_url, width: 100 if rating.picture.present? %></td>
+      <td><%= link_to 'Publish', publish_rating_path(rating), method: :put %></td>
+      <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

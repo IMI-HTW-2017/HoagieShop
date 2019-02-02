@@ -44,6 +44,8 @@
     <%= form.file_field :picture %>
   </div>
 
+  <%= form.hidden_field :published, value: false %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

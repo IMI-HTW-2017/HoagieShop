@@ -4,7 +4,19 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
   def index
-    @ratings = Rating.all
+    @ratings = Rating.where('published = ?', true)
+  end
+
+  def admin
+    @ratings = Rating.where('published = ?', false)
+  end
+
+  def publish
+    respond_to do |format|
+      Rating.find(params[:id]).update(published: true)
+      format.html { redirect_to admin_ratings_path, notice: 'Rating was successfully published.' }
+      format.json { render :show, status: :ok, location: @rating }
+    end
   end
 
   # GET /ratings/1
@@ -28,7 +40,7 @@ class RatingsController < ApplicationController
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
+        format.html { redirect_to @rating, notice: 'Rating was successfully created. It will be published after review.' }
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { render :new }
@@ -69,6 +81,6 @@ class RatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:stars, :comment, :picture)
+      params.require(:rating).permit(:stars, :comment, :picture, :published)
     end
 end
