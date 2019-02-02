@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :rating do
-    stars { 1 }
-    comment { "MyString" }
-    picture { "MyString" }
+    stars { rand(1..5) }
+    comment { "This is a rating" }
   end
 end
