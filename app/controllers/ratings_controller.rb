@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  before_action :set_rating, only: [:show, :edit, :update, :destroy]
+  before_action :set_rating, only: [:show, :edit, :update, :destroy, :publish]
 
   # GET /ratings
   # GET /ratings.json
@@ -13,9 +13,13 @@ class RatingsController < ApplicationController
 
   def publish
     respond_to do |format|
-      Rating.find(params[:id]).update(published: true)
-      format.html { redirect_to admin_ratings_path, notice: 'Rating was successfully published.' }
-      format.json { render :show, status: :ok, location: @rating }
+      if @rating.update(published: true)
+        format.html { redirect_to admin_ratings_path, notice: 'Rating was successfully published.' }
+        format.json { render :show, status: :ok, location: @rating }
+      else
+        format.html { render admin_ratings_path }
+        format.json { render json: @rating.errors, status: :unprocessable_entity }
+      end
     end
   end
 
