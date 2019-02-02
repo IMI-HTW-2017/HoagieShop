@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
   BILLING_METHODS = {cash: 'Cash', visa: 'VISA', paypal: 'PayPal'}
+  STATUS = {temp: 'temp', pend: 'pending', clrd: 'cleared'}
 
   def subs_list
     Sub.where(order_id: id)

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'pages#show', page: "home"
   get "/pages/:page" => "pages#show", as: 'show_page'
   get "/ratings/admin" => "ratings#admin", as: 'admin_ratings'
+  get "/orders/:id/checkout" => "orders#checkout", as: 'checkout_order'
   put "/ratings/:id/publish" => "ratings#publish", as: 'publish_rating'
   resources :ratings
   resources :subs
